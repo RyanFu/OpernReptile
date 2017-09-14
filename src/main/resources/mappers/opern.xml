@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OpernDao">
+
+    <update id="deleteOpernTempInfo">
+        UPDATE tbl_operntempinfo
+        SET deleteflage = '1'
+    </update>
+
+    <insert id="insertOpernTempInfo">
+        INSERT INTO
+        tbl_operntempinfo
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.htmlUrl},
+            #{item.title},
+            now(),
+            now(),
+            '0')
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        updatedatatime = now(),
+        deleteflage = '0'
+    </insert>
+
+    <select id="getOpernTempInfo" resultType="model.OpernTempInfo">
+        SELECT
+            htmlUrl,
+            title
+        FROM tbl_operntempinfo
+        WHERE deleteflage = '0'
+    </select>
+
+    <update id="deleteOpernInfo">
+        UPDATE tbl_operninfo
+        SET deleteFlage = '1'
+    </update>
+
+    <insert id="insertIntoOpernInfo">
+        INSERT INTO tbl_operninfo VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+            #{item.title},
+            #{item.wordAuthor},
+            #{item.songAuthor},
+            #{item.singer},
+            #{item.format},
+            #{item.uploadUserName},
+            #{item.uploadDateTime},
+            #{item.categoryOne},
+            #{item.categoryTwo},
+            #{item.categoryThree},
+            #{item.origin},
+            #{item.views},
+            #{item.html},
+            #{item.dataOrigin},
+            now(),
+            now(),
+            '0'
+            )
+        </foreach>ON DUPLICATE KEY UPDATE
+        updatedatatime = now(),
+        deleteflage = '0'
+    </insert>
+
+    <update id="deleteOpernImgInfo">
+        UPDATE tbl_opernimginfo
+        SET deleteFlage = '1'
+    </update>
+
+    <insert id="insertIntoOpernImgInfo">
+        insert INTO tbl_opernimginfo VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id}, #{item.opernId}, #{item.opernIndex}, #{item.opernTitle}, #{item.opernImg}, '0')
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        opernId = opernId,
+        opernIndex = opernIndex,
+        opernTitle = opernTitle,
+        opernImg = opernImg,
+        deleteFlage = '0'
+    </insert>
+
+    <select id="getAllOpernImgInfo" resultType="model.OpernImgInfo">
+        SELECT *
+        FROM tbl_opernimg
+    </select>
+
+    <select id="getOpernInfo" resultType="model.OpernInfo">
+        SELECT
+            id,
+            title,
+            wordAuthor,
+            songAuthor,
+            singer,
+            format,
+            uploadUserName,
+            uploadDateTime,
+            categoryOne,
+            categoryTwo,
+            categoryThree,
+            origin,
+            views,
+            html,
+            dataOrigin
+        FROM tbl_operninfo
+    </select>
+
+    <update id="updateCategory">
+        update tbl_operninfo
+        set categoryOne = #{categoryOne}, categoryTwo = #{categoryTwo}, categoryThree = #{categoryThree}
+        where id = #{id};
+    </update>
+
+</mapper>

@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="aliyun-sdk-oss-2.6.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/aliyun-sdk-oss-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/hamcrest-core-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpclient-4.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpcore-4.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jdom-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.41-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/hamcrest-core-1.1.jar!/" />
+    </SOURCES>
+  </library>
+</component>

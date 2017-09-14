@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OpernReptile:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OpernReptile_jar</output-path>
+    <root id="archive" name="musicscore.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="OpernReptile" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.10.3/jsoup-1.10.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JAVA/untitled1/libs/mysql-connector-java-5.1.41-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.4/mybatis-3.4.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
