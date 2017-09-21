@@ -1,5 +1,6 @@
 import dao.OpernDao;
 import db.MyBatis;
+import model.OpernInfo;
 import model.OpernTempInfo;
 import net.zhongguoqupu.MusicScoreListHtmlRequest;
 import org.apache.ibatis.session.ExecutorType;
@@ -16,9 +17,12 @@ import java.util.concurrent.CountDownLatch;
 
 public class GetAllImgHtmlData {
     private static CountDownLatch countDownLatch = new CountDownLatch(3);
-    private static String[] opernCategorys1 = new String[]{"yuanchuang", "jipu", "xiqu"};
+    /*private static String[] opernCategorys1 = new String[]{"yuanchuang", "jipu", "xiqu"};
     private static String[] opernCategorys2 = new String[]{"minge", "tongsu", "meisheng"};
-    private static String[] opernCategorys3 = new String[]{"hechang", "shaoer", "waiguo", "qiyue"};
+    private static String[] opernCategorys3 = new String[]{"hechang", "shaoer", "waiguo", "qiyue"};*/
+    private static String[] opernCategorys1 = new String[]{"waiguo"};
+    private static String[] opernCategorys2 = new String[]{"shaoer"};
+    private static String[] opernCategorys3 = new String[]{"hechang"};
     private static ArrayList<OpernTempInfo> list = new ArrayList<OpernTempInfo>();
     private static ArrayList<OpernTempInfo> list1 = new ArrayList<OpernTempInfo>();
     private static ArrayList<OpernTempInfo> list2 = new ArrayList<OpernTempInfo>();
@@ -34,6 +38,13 @@ public class GetAllImgHtmlData {
         list.addAll(list3);
         SqlSession sqlSession = MyBatis.getSqlSessionFactory().openSession(ExecutorType.BATCH);
         OpernDao dao = sqlSession.getMapper(OpernDao.class);
+        ArrayList<OpernInfo> opernInfos = dao.getOpernInfo();
+        for(int i = 0; i < list.size(); i++){
+            if(opernInfos.contains(list.get(i))){
+                list.remove(i);
+                i--;
+            }
+        }
         dao.deleteOpernTempInfo();
         int i = dao.insertOpernTempInfo(list);
         L.i(i + "");

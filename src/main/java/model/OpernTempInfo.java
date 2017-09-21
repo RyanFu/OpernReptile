@@ -48,6 +48,25 @@ public class OpernTempInfo {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if(o instanceof OpernTempInfo){
+            OpernTempInfo that = (OpernTempInfo) o;
+            return htmlUrl != null ? htmlUrl.equals(that.htmlUrl) : that.htmlUrl == null;
+        }
+        if(o instanceof OpernInfo){
+            OpernInfo that = (OpernInfo) o;
+            return htmlUrl != null ? htmlUrl.equals(that.getHtml()) : that.getHtml() == null;
+        }
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return htmlUrl != null ? htmlUrl.hashCode() : 0;
+    }
+
+    @Override
     public String toString() {
         return "OpernTempInfo{" +
                 "htmlUrl='" + htmlUrl + '\'' +

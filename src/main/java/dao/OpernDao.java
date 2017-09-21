@@ -26,5 +26,7 @@ public interface OpernDao {
 
     ArrayList<OpernInfo> getOpernInfo();
 
+    ArrayList<Integer> getOpernInfoId();
+
     int updateCategory(OpernInfo opernInfo);
 }

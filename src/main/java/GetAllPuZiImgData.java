@@ -184,7 +184,7 @@ public class GetAllPuZiImgData {
         ArrayList<OpernTempInfo> list = dao.getOpernTempInfo();
         countDownLatch = new CountDownLatch(5);
         /*new WorkThread(list.subList(0, list.size()), opernInfoArrayList1).start();*/
-        dao.deleteOpernInfo();
+        //dao.deleteOpernInfo();
         new WorkThread(list.subList(0, list.size() / 5), opernInfoArrayList1).start();
         new WorkThread(list.subList(list.size() / 5, list.size() / 5 * 2), opernInfoArrayList2).start();
         new WorkThread(list.subList(list.size() / 5 * 2, list.size() / 5 * 3), opernInfoArrayList3).start();

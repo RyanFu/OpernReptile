@@ -109,6 +109,11 @@
         FROM tbl_operninfo
     </select>
 
+    <select id="getOpernInfoId" resultType="Integer">
+        select id
+        from tbl_operninfo WHERE deleteFlage = '0';
+    </select>
+
     <update id="updateCategory">
         update tbl_operninfo
         set categoryOne = #{categoryOne}, categoryTwo = #{categoryTwo}, categoryThree = #{categoryThree}
